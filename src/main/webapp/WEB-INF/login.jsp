@@ -1,27 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head th:replace="fragments::header"></head>
-<body>
-    <div class="fluid-content">
-    	<nav th:replace="fragments::nav"></nav>
-    </div>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     
-    <!--registration form-->
-        <div class="fluid-content">
-    	<div th:replace="fragments::messages"></div>
-    	<div class="row">
-    		<div class="col-12">
-    			<form action="/home/login" th:object="${user}" method="POST">
-    				<input type="text" th:field="*{email}" placeholder="email" th:errorclass="input_error_highlight">
-    				<p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="error_message"/>
-    				
-    				<input type="password" th:field="*{password}" placeholder="password" th:errorclass="input_error_highlight">
-    				<p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="error_message"/>
-    				 				
-					<input type="submit" value="Login" class="btn btn-success"/>
-    			</form>
-    		</div>
-    	</div>
-    </div>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+</head>
+<body>
+    <h1>Login</h1>
+    <p><c:out value="${error}" /></p>
+    <form method="post" action="/home/login">
+        <p>
+            <label type="email" for="email">Email</label>
+            <input type="text" id="email" name="email"/>
+        </p>
+        <p>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password"/>
+        </p>
+        <input type="submit" value="Login!"/>
+    </form>    
 </body>
 </html>

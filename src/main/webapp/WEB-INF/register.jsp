@@ -1,31 +1,33 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>    
 <!DOCTYPE html>
-<html lang="en">
-<head th:replace="fragments::header"></head>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Page</title>
+</head>
 <body>
-    <div class="fluid-content">
-    	<nav th:replace="fragments::nav"></nav>
-    </div>
+    <h1>Register!</h1>
     
-    <!--registration form-->
-        <div class="fluid-content">
-    	<div th:replace="fragments::messages"></div>
-    	<div class="row">
-    		<div class="col-12">
-    			<form action="/home/register" th:object="${user}" method="POST">
-    				<input type="text" th:field="*{email}" placeholder="email" th:errorclass="input_error_highlight">
-    				<p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="error_message"/>
-    				
-    				<input type="password" th:field="*{password}" placeholder="password" th:errorclass="input_error_highlight">
-    				<p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="error_message"/>
-    				
-    				<input type="password" th:field="*{passConfirm}" placeholder="confirm password" th:errorclass="input_error_highlight">
-    				<p th:if="${#fields.hasErrors('passConfirm')}" th:errors="*{passConfirm}" class="error_message"/>
-    				
-    				 				
-					<input type="submit" value="Register" class="btn btn-success"/>
-    			</form>
-    		</div>
-    	</div>
-    </div>
+    <p><form:errors path="user.*"/></p>
+    
+    <form:form method="POST" action="/home/register" modelAttribute="user">
+        <p>
+            <form:label path="email">Email:</form:label>
+            <form:input type="email" path="email"/>
+        </p>
+        <p>
+            <form:label path="password">Password:</form:label>
+            <form:password path="password"/>
+        </p>
+        <p>
+            <form:label path="passConfirm">Password Confirmation:</form:label>
+            <form:password path="passConfirm"/>
+        </p>
+        <input type="submit" value="Register!"/>
+    </form:form>
+    
 </body>
 </html>

@@ -1,4 +1,4 @@
-package com.jason.EventsBeltReviewer;
+package com.Money.EventsBeltReviewer;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

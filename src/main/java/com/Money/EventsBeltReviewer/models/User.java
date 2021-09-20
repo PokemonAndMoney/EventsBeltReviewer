@@ -25,6 +25,13 @@ public class User {
 	@OneToMany(mappedBy="user", fetch = FetchType.LAZY)
 	private List<Comment> comments;
 	
+	public User () {}
+	public User (String email, String password, String passConfirm) {
+		this.email = email;
+		this.password = password;
+		this.passConfirm = passConfirm;
+	}
+	
 	public List<Event> getEvents() {
 		return events;
 	}

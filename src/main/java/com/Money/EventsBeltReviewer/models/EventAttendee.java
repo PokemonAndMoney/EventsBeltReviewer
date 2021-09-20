@@ -29,7 +29,8 @@ public class EventAttendee {
     protected void onCreate(){
         this.createdAt = new Date();
     }
-
+	
+	public EventAttendee() {}
 	public Long getId() {
 		return id;
 	}

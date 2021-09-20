@@ -44,6 +44,12 @@ public class Event {
     @OneToMany(mappedBy="event", fetch = FetchType.LAZY)
 	private List<EventAttendee> eventAttendees;
     
+    public Event() {}
+    public Event(String name, String date, String location) {
+    	this.name = name;
+    	this.date = date;
+    	this.location = location;
+    }
     public Long getId() {
 		return id;
 	}

@@ -33,6 +33,11 @@ public class Comment {
     @JoinColumn(name="event_id")
     private Event event;
     
+    public Comment () {}
+    public Comment (String comment) {
+    	this.comment = comment;
+    }
+    
     public Long getId() {
 		return id;
 	}

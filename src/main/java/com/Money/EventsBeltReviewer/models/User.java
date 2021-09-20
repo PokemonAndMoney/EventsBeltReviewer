@@ -15,6 +15,46 @@ public class User {
 	private String email;
 	@Size(min=8, max=200)
 	private String password;
+	
+	@OneToMany(mappedBy="user", fetch = FetchType.LAZY)
+	private List<Event> events;
+	
+	@OneToMany(mappedBy="user", fetch = FetchType.LAZY)
+	private List<EventAttendee> eventsAttending;
+	
+	@OneToMany(mappedBy="user", fetch = FetchType.LAZY)
+	private List<Comment> comments;
+	
+	public List<Event> getEvents() {
+		return events;
+	}
+
+
+	public void setEvents(List<Event> events) {
+		this.events = events;
+	}
+
+
+	public List<EventAttendee> getEventsAttending() {
+		return eventsAttending;
+	}
+
+
+	public void setEventsAttending(List<EventAttendee> eventsAttending) {
+		this.eventsAttending = eventsAttending;
+	}
+
+
+	public List<Comment> getComments() {
+		return comments;
+	}
+
+
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
+	}
+
+
 	public String getPassConfirm() {
 		return passConfirm;
 	}
